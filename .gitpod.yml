@@ -1,5 +1,5 @@
 tasks:
   - name: Prebuild setup
     init: |
-    sudo apt-get install -y awscli
-    gp idp login aws --role-arn arn:aws:iam::926103658615:role/gitpod_web_identity
+      sudo apt-get install -y awscli
+      gp idp login aws --role-arn arn:aws:iam::926103658615:role/gitpod_web_identity
