@@ -1,5 +1,5 @@
 tasks:
-  - name: Prebuild Setup
+  - name: Prebuild terraform
     init: |
       sudo apt-get update
       sudo apt-get install -y wget unzip
@@ -7,6 +7,8 @@ tasks:
       echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
       sudo apt update && sudo apt install terraform
       terraform version
+  - name: Prebuild aws
+    init: |
       sudo apt-get install -y awscli
       aws sts assume-role --role-arn "arn:aws:iam::926103658615:role/gitpod_terraform" --role-session-name "MySession" > assumed-role.json
       export AWS_ACCESS_KEY_ID=$(jq -r '.Credentials.AccessKeyId' assumed-role.json)
