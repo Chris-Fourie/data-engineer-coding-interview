@@ -1,0 +1,4 @@
+tasks:
+    - name: Terraform
+      init: apt-get install terraform
+      command: terraform -help
