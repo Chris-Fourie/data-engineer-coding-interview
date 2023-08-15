@@ -8,4 +8,7 @@ tasks:
       sudo apt update && sudo apt install terraform
       terraform version
       sudo apt-get install -y awscli
-
+      aws sts assume-role --role-arn "arn:aws:iam::926103658615:role/gitpod_terraform" --role-session-name "MySession" > assumed-role.json
+      export AWS_ACCESS_KEY_ID=$(jq -r '.Credentials.AccessKeyId' assumed-role.json)
+      export AWS_SECRET_ACCESS_KEY=$(jq -r '.Credentials.SecretAccessKey' assumed-role.json)
+      export AWS_SESSION_TOKEN=$(jq -r '.Credentials.SessionToken' assumed-role.json)
