@@ -1,4 +1,4 @@
-FROM hashicorp/terraform
+FROM debian:stable-slim
 
 RUN apt-get update && apt-get install -yq \
     git \
