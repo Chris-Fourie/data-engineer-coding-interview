@@ -1,6 +1,2 @@
-tasks:
-  - name: Install AWS CLI and login to AWS
-    init: |
-      sudo apt-get update
-      sudo apt-get install -y awscli
-    command: gp idp login aws --role-arn arn:aws:iam::926103658615:role/gitpod_web_identity
+image:
+    file: .gitpod.Dockerfile
